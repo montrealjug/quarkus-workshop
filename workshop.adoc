@@ -50,6 +50,24 @@ utiliser test container for mongo
 
 == How to monitor a native app
 
+=== Through command line
+
+[source,sh]
+----
+./mvnw quarkus:add-extension \
+-Dextensions="smallrye-opentracing"
+----
+
+=== Modifying the pom
+
+[source,xml]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-opentracing</artifactId>
+</dependency>
+----
+
 jaeger
 
 use curl request

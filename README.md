@@ -5,6 +5,7 @@ This is the content of the workshop given at the montreal Jug event 18th June 20
 # Folder structure
 
 * slides : workshop slides
+* prerequisites : tools to install
 
 
 

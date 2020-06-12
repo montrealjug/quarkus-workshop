@@ -1,0 +1,63 @@
+= Workshop
+
+== Quarkus presentation
+
+Slides available https://www.github.com[here].
+
+== Create a microservice in command line
+
+[source,shell]
+----
+$ mvn io.quarkus:quarkus-maven-plugin:1.5.1.Final:create \
+-DprojectGroupId=org.montrealjug\
+-DprojectArtifactId=quarkus \
+-DclassName="org.montrealjug.api.QuarkusWorkshopResource" \
+-Dpath="/hello"
+----
+
+go to folder structure
+see tests
+
+== Native compilation
+
+with local graalvm
+
+with docker graalvm
+
+== Adding an extension (Mongo)
+
+list des extension -> site
+
+=== Through command line
+
+[source,sh]
+----
+./mvnw quarkus:add-extension \
+-Dextensions="quarkus-mongodb-client"
+----
+
+=== Modifying the pom
+
+[source,xml]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-mongodb-client</artifactId>
+</dependency>
+----
+
+utiliser test container for mongo
+
+== How to monitor a native app
+
+jaeger
+
+use curl request
+
+== Auth0
+
+TODO max
+
+== Reactive
+
+TODO max

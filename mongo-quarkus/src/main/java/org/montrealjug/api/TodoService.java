@@ -13,7 +13,7 @@ import java.util.List;
 @ApplicationScoped
 public class TodoService {
 
-    @ConfigProperty(name = "quarkus.mongo.database")
+    @ConfigProperty(name = "quarkus.mongodb.database")
     private String database;
 
     @ConfigProperty(name = "custom.quarkus.mongodb.collection")

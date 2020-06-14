@@ -389,7 +389,7 @@ import java.util.List;
 @ApplicationScoped
 public class TodoService {
 
-    @ConfigProperty(name = "quarkus.mongo.database")
+    @ConfigProperty(name = "quarkus.mongodb.database")
     private String database;
 
     @ConfigProperty(name = "custom.quarkus.mongodb.collection")
@@ -437,7 +437,7 @@ Add mongo info to your properties :
 
 [source, properties]
 ----
-quarkus.mongo.database=jug-quarkus-workshop
+quarkus.mongodb.database=jug-quarkus-workshop
 custom.quarkus.mongodb.collection=todos
 ----
 
@@ -497,14 +497,22 @@ Building the image
 
 https://quarkus.io/guides/container-image
 
-./mvnw quarkus:add-extension -Dextensions="container-image-jib"
+./mvnw quarkus:add-extension -Dextensions="container-image-docker"
 
-./mvnw clean package -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
+./mvnw clean package -Pnative -Dquarkus.native.container-build=true
 
+docker build -f src/main/docker/Dockerfile.native -t quarkus/mongo-quarkus:1.0 .
 
-use curl request
+docker-compose up
 
-TODO
+curl -X PUT -H "Content-Type: application/json" -d '{"title":"Jam","completed":"false"}' http://localhost:8080/todos | json_pp
+curl -X PUT -H "Content-Type: application/json" -d '{"title":"Ham","completed":"false"}' http://localhost:8080/todos | json_pp
+
+curl -X GET http://localhost:8080/todos | json_pp
+
+You can do more request to have some data in jaeger.
+
+When you consider having sent many request you can got to http://localhost:16686/search[Jaeger].
 
 == Auth0
 

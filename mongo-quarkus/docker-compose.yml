@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "6831:6831/udp"
+      - "16686:16686"
+    networks:
+      - jaeger-quarkus
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=
+      - MONGO_INITDB_ROOT_PASSWORD=
+    ports:
+      - '27017:27017'
+    networks:
+      - jaeger-quarkus
+
+  mongo-quarkus:
+    image: quarkus/mongo-quarkus:1.0
+    ports:
+      - "8080:8080"
+    environment:
+      - JAEGER_AGENT_HOST=jaeger
+      - JAEGER_AGENT_PORT=6831
+      - QUARKUS_MONGODB_HOSTS=mongo:27017
+    networks:
+      - jaeger-quarkus
+    depends_on:
+      - jaeger
+      - mongo
+
+networks:
+  jaeger-quarkus:

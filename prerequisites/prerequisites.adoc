@@ -170,7 +170,7 @@ On MacOS X, XCode provides the required dependencies to build native executables
 xcode-select --install
 ----
 
-Installing an GraalVM 20 :
+Installing GraalVM 20 :
 
 [source,sh]
 ----
@@ -182,6 +182,20 @@ You are prompted :
 [source,sh]
 ----
 Do you want java 20.1.0.r11-grl to be set as default? (Y/n): n
+----
+
+Install native image in order to allow native compilation on your machine:
+
+[source,sh]
+----
+~/.sdkman/candidates/java/20.1.0.r11-grl/bin/gu install native-image
+----
+
+And set the GRAALVM_HOME variable :
+
+[source,sh]
+----
+export GRAALVM_HOME=~/.sdkman/candidates/java/20.1.0.r11-grl/
 ----
 
 == Installing Maven
@@ -204,7 +218,6 @@ But of course, if you are on Mac OS X and use Homebrew, just install Maven with 
 ----
 $ sdkman install maven 3.6.3
 ----
-
 
 You are prompted :
 

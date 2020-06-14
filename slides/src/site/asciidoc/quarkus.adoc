@@ -83,9 +83,9 @@ image::quarkus_metrics_graphic_bootmem_wide.png[Quarkus metrics on REST and REST
 == Tooling - Plugin maven
 [source,sh]
 ----
-mvn io.quarkus:quarkus-maven-plugin:1.5.0.Final:create \
--DprojectGroupId=org.montrealjug\
--DprojectArtifactId=quarkus \
+mvn io.quarkus:quarkus-maven-plugin:1.5.1.Final:create \
+-DprojectGroupId=org.montrealjug \
+-DprojectArtifactId=hello-quarkus \
 -DclassName="org.montrealjug.api.QuarkusWorkshopResource" \
 -Dpath="/hello"
 

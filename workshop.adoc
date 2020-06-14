@@ -493,6 +493,15 @@ We added earlier the "quarkus-smallrye-opentracing" extension :
 
 To monitor all the transactions in our api, we are gonna use https://www.jaegertracing.io[Jaeger].
 
+Building the image
+
+https://quarkus.io/guides/container-image
+
+./mvnw quarkus:add-extension -Dextensions="container-image-jib"
+
+./mvnw clean package -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
+
+
 use curl request
 
 TODO

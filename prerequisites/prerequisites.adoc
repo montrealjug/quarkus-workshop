@@ -331,3 +331,10 @@ docker-py version: 3.7.3
 CPython version: 3.6.8
 OpenSSL version: OpenSSL 1.1.0j  20 Nov 2018
 ----
+
+To save some download time, you can also pull in advance the quarkus image (600MB)
+
+[source,shell]
+----
+$ docker pull quay.io/quarkus/ubi-quarkus-native-image:19.3.1-java11
+----

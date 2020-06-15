@@ -13,7 +13,7 @@ $ mvn io.quarkus:quarkus-maven-plugin:1.5.1.Final:create -DprojectGroupId=org.mo
 
 === Modifying endpoint
 
-Go inside the project just generated heelo-quarkus and execute the following command :
+Go inside the project just generated `hello-quarkus` and execute the following command :
 
 [source,shell]
 ----
@@ -49,20 +49,20 @@ public class QuarkusWorkshopResource {
 $ curl http://localhost:8080/hello
 ----
 
-You can check the maven command, no hot reload occured.
+You can check the maven command, no hot reload occurred.
 
 You have to call the endpoint through the curl command to trigger the hot reload.
 
-Try a create a standard Jar with maven :
+Try to create a standard Jar with maven :
 
 [source, shell]
 ----
 $ ./mvnw package
 ----
 
-We get an error because Quarkus generate tests for the endpoint when we ran the command to cretae the project.
+We get an error because Quarkus generated tests for the endpoint when we ran the command to create the project.
 
-To correct it, we have to go to the test method testHelloEndpoint in the class QuarkusWorkshopResourceTest.
+To correct it, we have to go to the test method `testHelloEndpoint` in the class `QuarkusWorkshopResourceTest`.
 
 And change "is("hello")" to "is("hello Quarkus")".
 
@@ -146,6 +146,10 @@ $ ./target/hello-quarkus-1.0-SNAPSHOT-runner
 It could work or not depending on your OS.
 Because you should execute the native image in a Docker container it has been packaged for.
 
+You can try to run the executable, but from a Linux machine, such as your Docker VM:
+
+     docker run -p 8080:8080 -v $PWD/target:/target -it ubuntu:latest /target/hello-quarkus-1.0-SNAPSHOT-runner
+
 == Create a microservice and add an extension (Mongo)
 
 [source,shell]
@@ -153,7 +157,7 @@ Because you should execute the native image in a Docker container it has been pa
 $ mvn io.quarkus:quarkus-maven-plugin:1.5.1.Final:create -DprojectGroupId=org.montrealjug -DprojectArtifactId=mongo-quarkus -DclassName="org.montrealjug.api.TodoResource" -Dpath="/todos"
 ----
 
-In order to list all the extension available in a Quarkus project, you could go to the Quarkus Website à la page des https://code.quarkus.io[extensions].
+In order to list all the extension available in a Quarkus project, you could go to the Quarkus Website https://code.quarkus.io[at the extensions page].
 
 Or you could use the following command inside the project you just created :
 
@@ -491,7 +495,7 @@ We added earlier the "quarkus-smallrye-opentracing" extension :
 </dependency>
 ----
 
-To monitor all the transactions in our api, we are gonna use https://www.jaegertracing.io[Jaeger].
+To monitor all the transactions in our api, we are going to use https://www.jaegertracing.io[Jaeger].
 
 Building the image
 

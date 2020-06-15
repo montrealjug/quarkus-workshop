@@ -23,8 +23,12 @@ The application is now runnable using `java -jar target/hello-quarkus-1.0-SNAPSH
 
 You can create a native executable using: `./mvnw package -Pnative`.
 
+You can then execute your native executable with: `./target/hello-quarkus-1.0-SNAPSHOT-runner`
+
 Or, if you don't have GraalVM installed, you can run the native executable build in a container using: `./mvnw package -Pnative -Dquarkus.native.container-build=true`.
 
-You can then execute your native executable with: `./target/hello-quarkus-1.0-SNAPSHOT-runner`
+You'll then be able to run the executable, but from a Linux machine, such as your Docker VM:
+
+     docker run -p 8080:8080 -v $PWD/target:/target -it ubuntu:latest /target/hello-quarkus-1.0-SNAPSHOT-runner
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image.

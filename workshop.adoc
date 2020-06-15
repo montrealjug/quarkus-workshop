@@ -13,7 +13,7 @@ $ mvn io.quarkus:quarkus-maven-plugin:1.5.1.Final:create -DprojectGroupId=org.mo
 
 === Modifying endpoint
 
-Go inside the project just generated heelo-quarkus and execute the following command :
+Go inside the project just generated `hello-quarkus` and execute the following command :
 
 [source,shell]
 ----
@@ -49,20 +49,20 @@ public class QuarkusWorkshopResource {
 $ curl http://localhost:8080/hello
 ----
 
-You can check the maven command, no hot reload occured.
+You can check the maven command, no hot reload occurred.
 
 You have to call the endpoint through the curl command to trigger the hot reload.
 
-Try a create a standard Jar with maven :
+Try to create a standard Jar with maven :
 
 [source, shell]
 ----
 $ ./mvnw package
 ----
 
-We get an error because Quarkus generate tests for the endpoint when we ran the command to cretae the project.
+We get an error because Quarkus generated tests for the endpoint when we ran the command to create the project.
 
-To correct it, we have to go to the test method testHelloEndpoint in the class QuarkusWorkshopResourceTest.
+To correct it, we have to go to the test method `testHelloEndpoint` in the class `QuarkusWorkshopResourceTest`.
 
 And change "is("hello")" to "is("hello Quarkus")".
 
@@ -146,6 +146,10 @@ $ ./target/hello-quarkus-1.0-SNAPSHOT-runner
 It could work or not depending on your OS.
 Because you should execute the native image in a Docker container it has been packaged for.
 
+You can try to run the executable, but from a Linux machine, such as your Docker VM:
+
+     docker run -p 8080:8080 -v $PWD/target:/target -it ubuntu:latest /target/hello-quarkus-1.0-SNAPSHOT-runner
+
 == Create a microservice and add an extension (Mongo)
 
 [source,shell]
@@ -153,7 +157,7 @@ Because you should execute the native image in a Docker container it has been pa
 $ mvn io.quarkus:quarkus-maven-plugin:1.5.1.Final:create -DprojectGroupId=org.montrealjug -DprojectArtifactId=mongo-quarkus -DclassName="org.montrealjug.api.TodoResource" -Dpath="/todos"
 ----
 
-In order to list all the extension available in a Quarkus project, you could go to the Quarkus Website à la page des https://code.quarkus.io[extensions].
+In order to list all the extension available in a Quarkus project, you could go to the Quarkus Website https://code.quarkus.io[at the extensions page].
 
 Or you could use the following command inside the project you just created :
 
@@ -164,9 +168,9 @@ $ ./mvnw quarkus:list-extensions
 
 There are around 250 extensions at the moment.
 
-=== Adding the mongo and the opentracing extensions to our project
+=== Adding the mongo and opentracing extensions to our project
 
-To add a quarkus extension to your project, you have to way :
+To add a quarkus extension to your project, you have 2 ways:
 
 * through command line
 * by modifying the pom
@@ -198,7 +202,7 @@ The following dependency has been added to our pom file :
 
 ==== By modifying the pom
 
-You can directly add the dependencies in the dependencies part of the pom file.
+You can directly add the dependencies to the dependencies part of the pom file.
 
 [source,xml]
 ----
@@ -212,9 +216,9 @@ You can directly add the dependencies in the dependencies part of the pom file.
 </dependency>
 ----
 
-=== Adding the testcontainer
+=== Adding testcontainer
 
-Test Container is gonna allow us to have a mongo database directly in our tests suites :
+Test Container is going to allow us to have a mongo database directly in our tests suites:
 
 [source,xml]
 ----
@@ -491,7 +495,7 @@ We added earlier the "quarkus-smallrye-opentracing" extension :
 </dependency>
 ----
 
-To monitor all the transactions in our api, we are gonna use https://www.jaegertracing.io[Jaeger].
+To monitor all the transactions in our api, we are going to use https://www.jaegertracing.io[Jaeger].
 
 Building the image
 
@@ -512,7 +516,7 @@ curl -X GET http://localhost:8080/todos | json_pp
 
 You can do more request to have some data in jaeger.
 
-When you consider having sent many request you can got to http://localhost:16686/search[Jaeger].
+When you consider having sent many requests you can go to http://localhost:16686/search[Jaeger].
 
 == Auth0
 

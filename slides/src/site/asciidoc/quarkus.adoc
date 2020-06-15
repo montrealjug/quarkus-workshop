@@ -32,7 +32,7 @@ image::container-density-with-quarkus.svg[Density with Quarkus]
 
 image::jvm-graalvm-targets-quarkus-green.svg[Hotspot ou Graalvm]
 
-=== Native compilation (aot)
+=== Native compilation (https://openjdk.java.net/jeps/295[aot])
 
 image::native-executable-process.png[Native compilation]
 
@@ -47,7 +47,7 @@ image::graal-vm-arch-green.svg[Graalvm]
 
 [NOTE.speaker]
 --
-The compiler removes everything useless to the final Jar so it's as minimal as possible.
+The compiler removes everything useless to the final Jar so that it's as minimal as possible.
 --
 
 === How does the executable works without a JVM ?
@@ -64,7 +64,7 @@ image::quarkus_metrics_graphic_bootmem_wide.png[Quarkus metrics on REST and REST
 
 [NOTE.speaker]
 --
-50 mo in our example vs 100 mo min with a jvm
+50 MB in our example vs 100 MB min with a jvm
 --
 
 === Advantages :
@@ -93,7 +93,7 @@ mvn io.quarkus:quarkus-maven-plugin:1.5.1.Final:create \
 [NOTE.speaker]
 --
 The Quarkus team has developed a tool allowing to bootstrap an application easily.
-We just have to indicate the groupeId, artifactId etc.
+We just have to indicate the groupId, artifactId etc.
 
 A first route is created : DEMO
 
@@ -112,7 +112,7 @@ ____
 
 - An extension allows you to install a tool or product without a boilerplate code.
 - Only configuration is required.
-- Abstract all the operation, initialization, dependencies to the developer.
+- Abstract all the operations, initialization, dependencies from the developer.
 
 
 [NOTE.speaker]

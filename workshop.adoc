@@ -168,9 +168,9 @@ $ ./mvnw quarkus:list-extensions
 
 There are around 250 extensions at the moment.
 
-=== Adding the mongo and the opentracing extensions to our project
+=== Adding the mongo and opentracing extensions to our project
 
-To add a quarkus extension to your project, you have to way :
+To add a quarkus extension to your project, you have 2 ways:
 
 * through command line
 * by modifying the pom
@@ -202,7 +202,7 @@ The following dependency has been added to our pom file :
 
 ==== By modifying the pom
 
-You can directly add the dependencies in the dependencies part of the pom file.
+You can directly add the dependencies to the dependencies part of the pom file.
 
 [source,xml]
 ----
@@ -216,9 +216,9 @@ You can directly add the dependencies in the dependencies part of the pom file.
 </dependency>
 ----
 
-=== Adding the testcontainer
+=== Adding testcontainer
 
-Test Container is gonna allow us to have a mongo database directly in our tests suites :
+Test Container is going to allow us to have a mongo database directly in our tests suites:
 
 [source,xml]
 ----
@@ -516,7 +516,7 @@ curl -X GET http://localhost:8080/todos | json_pp
 
 You can do more request to have some data in jaeger.
 
-When you consider having sent many request you can got to http://localhost:16686/search[Jaeger].
+When you consider having sent many requests you can go to http://localhost:16686/search[Jaeger].
 
 == Auth0
 

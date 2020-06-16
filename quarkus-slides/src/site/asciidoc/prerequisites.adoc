@@ -131,7 +131,7 @@ Installing an AdoptOpenJDK.net JDK version 11 :
 
 [source,sh]
 ----
-sdkman install java 11.0.7.hs-adpt
+sdk install java 11.0.7.hs-adpt
 ----
 
 You are prompted :
@@ -163,7 +163,7 @@ sudo dnf install gcc glibc-devel zlib-devel
 sudo apt-get install build-essential libz-dev zlib1g-dev
 ----
 
-On MacOS X, XCode provides the required dependencies to build native executables:
+On MacOS X, XyCode provides the required dependencies to build native executables:
 
 [source,shell]
 ----
@@ -174,7 +174,7 @@ Installing GraalVM 20 :
 
 [source,sh]
 ----
-sdkman install java 20.1.0.r11-grl
+sdk install java 20.1.0.r11-grl
 ----
 
 You are prompted :

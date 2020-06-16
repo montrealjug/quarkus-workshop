@@ -5,6 +5,19 @@ v0.1, 2020-06-18: first version
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../../main/java]
 
+== About Us
+
+Maxime David - Studio Lead architect at National Bank of Canada
+
+* https://github.com/maxday[Github]
+* @Xouuox: Twitter
+
+Xavier Bouclet - Tech Lead at National Bank of Canada and Jug leader
+
+* https://mikrethor.github.io/blog/[Blog]
+* @XavierBouclet : Twitter
+* https://www.amazon.ca/-/fr/Xavier-Bouclet-ebook/dp/B083GJCHSG[La dure vie de Techlead]
+
 == Quarkus
 
 [red]#*=*#
@@ -192,6 +205,7 @@ No classic JVM, no JAVA
 
 - https://code.quarkus.io[Starter Site]
 - https://quarkus.io[Site Quarkus]
+- https://quarkus.io/quarkus-workshops/super-heroes/[6 hours workshop]
 - https://www.youtube.com/watch?v=UB-pRJgGhZc[Ch'tit Jug]
 - https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&cad=rja&uact=8&ved=2ahUKEwimvqeK0PHnAhVtUN8KHbShD0wQwqsBMAJ6BAgKEA4&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DS05WsHJZsYk&usg=AOvVaw09VQOhf3p0yc95-RNWqT5C[DevoxxFr Workshop]
 - https://github.com/quarkusio/quarkus[Github Quarkus]

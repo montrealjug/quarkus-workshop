@@ -10,6 +10,8 @@ It is free, open source (available under the MIT Licence) and has been ported to
 
 === Installing cURL
 
+On windows, it's probably best to get it https://curl.haxx.se/download.html[from the source] or https://chocolatey.org/[from chocolatey]
+
 If you are on Mac OS X and if you have installed Homebrew, then installing cURL is just a matter of a single command.footnote:[Homebrew https://brew.sh]
 Open your terminal and install cURL with the following command:
 
@@ -69,7 +71,7 @@ $ curl http://localhost:8083/api/heroes
 But what we really want is to format the JSON payload so it is easier to read.
 For that, there is a neat utility tool called jq that we could use.
 jq is a tool for processing JSON inputs, applying the given filter to its JSON text inputs and producing the filter's results as JSON on standard output.footnote:[jq https://stedolan.github.io/jq]
-You can install it on Mac OSX with a simple `brew install jq`.
+You can install it on Mac OSX with a simple `brew install jq`; on Windows you can either https://stedolan.github.io/jq/download/[get it from the source] or https://chocolatey.org/[chocolatey once again].
 Once installed, it's just a matter of piping the cURL output to jq like this:
 
 [source,shell]
@@ -177,7 +179,7 @@ Installing GraalVM 20 :
 sdk install java 20.1.0.r11-grl
 ----
 
-You are prompted :
+You are prompted with:
 
 [source,sh]
 ----
@@ -191,7 +193,7 @@ Install native image in order to allow native compilation on your machine:
 ~/.sdkman/candidates/java/20.1.0.r11-grl/bin/gu install native-image
 ----
 
-And set the GRAALVM_HOME variable :
+And set the GRAALVM_HOME variable:
 
 [source,sh]
 ----
@@ -328,4 +330,11 @@ docker-compose version 1.24.1, build 4667896b
 docker-py version: 3.7.3
 CPython version: 3.6.8
 OpenSSL version: OpenSSL 1.1.0j  20 Nov 2018
+----
+
+To save some download time, you can also pull in advance the quarkus image (600MB)
+
+[source,shell]
+----
+$ docker pull quay.io/quarkus/ubi-quarkus-native-image:19.3.1-java11
 ----

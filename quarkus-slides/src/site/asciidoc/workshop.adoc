@@ -104,7 +104,7 @@ $ ./mvnw package -Pnative
 
 [NOTE.speaker]
 --
-Error there can be related to GRAALVM not propely configured.
+Error there can be related to GRAALVM not properly configured.
 
 ~/.sdkman/candidates/java/20.1.0.r11-grl/bin/gu install native-image
 export GRAALVM_HOME=~/.sdkman/candidates/java/20.1.0.r11-grl/
@@ -225,10 +225,12 @@ Test Container is going to allow us to have a mongo database directly in our tes
 <dependency>
   <groupId>org.testcontainers</groupId>
   <artifactId>testcontainers</artifactId>
+  <scope>test</scope>
 </dependency>
 <dependency>
   <groupId>org.testcontainers</groupId>
   <artifactId>junit-jupiter</artifactId>
+  <scope>test</scope>
 </dependency>
 ----
 

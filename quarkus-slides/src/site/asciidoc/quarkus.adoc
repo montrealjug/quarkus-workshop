@@ -90,34 +90,6 @@ image::quarkus_metrics_graphic_bootmem_wide.png[Quarkus metrics on REST and REST
 - JVMTI, JMX and other VM interfaces (no agent) => not supported
 - Reflection => partially supported
 
-== Tooling - Plugin maven
-[source,sh]
-----
-mvn io.quarkus:quarkus-maven-plugin:1.5.1.Final:create \
--DprojectGroupId=org.montrealjug \
--DprojectArtifactId=hello-quarkus \
--DclassName="org.montrealjug.api.QuarkusWorkshopResource" \
--Dpath="/hello"
-
-----
-[NOTE.speaker]
---
-The Quarkus team has developed a tool allowing to bootstrap an application easily.
-We just have to indicate the groupId, artifactId etc.
-
-A first route is created : DEMO
-
--> POSTMAN 
--> Watch code
---
-
-== Tooling - Adding an extension
-
-[quote, Quarkus team, https://quarkus.io/guides/writing-extensions]
-____
-Quarkus’s mission is to transform your entire application including the libraries it uses, into an artifact that uses significantly less resources than traditional approaches.
-____
-
 == Hello Quarkus
 
 Objective :
@@ -133,7 +105,7 @@ Objective :
 Objective :
 
 [%step]
-- adding extension
+- adding extensions
 - interact with a database (mongo)
 - monitor your native app with jaeger
 

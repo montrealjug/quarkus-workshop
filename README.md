@@ -2,22 +2,27 @@
 
 This is the content of the workshop given at the montreal Jug event 18th June 2020.
 
-# Folder structure
+# Project structure
 
-* slides : workshop slides
-* prerequisites : tools to install
+* quarkus-slides : presentation slides
+* hello-quarkus : first project - hello world wit native compilation
+* mongo-quarkus : second project - mongo with jaeger monitoring
 
 
+To generate pdf and slides go inside quarkus-slides folder and type : 
 
-Todo :
-- complete prez
-- create helloworld microservice
-- adding mongo
-- jaeger
-- send request
-- native compiation
+`./mvnw process-resources`
 
-VirtualBox and docker image
+In order to see the slides locally open target/generated-slides/quarkus.html with your browser.
+
+And for the pdf target/generated-docs :
+
+* prerequisites.pdf - tools to install
+* quarkus.pdf - slides in pdf
+* workshop.pdf - workshop steps
+
+Happy coding !!!
+
 
 
 

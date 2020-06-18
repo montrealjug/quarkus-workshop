@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="author" content="Xavier Bouclet" /><title>Montreal Jug : Quarkus Workshop</title><meta content="yes" name="apple-mobile-web-app-capable" /><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport" /><link href="reveal.js-3.9.2/css/reveal.css" rel="stylesheet" /><link rel="stylesheet" href="reveal.js-3.9.2/css/theme/solarized.css" id="theme" /><link href="reveal.js-3.9.2/lib/css/zenburn.css" rel="stylesheet" /><script>var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? "reveal.js-3.9.2/css/print/pdf.css" : "reveal.js-3.9.2/css/print/paper.css";
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]>
+    <script src="reveal.js-3.9.2/lib/js/html5shiv.js"></script><![endif]--></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Montreal Jug </h1><h2>Quarkus Workshop</h2><p class="author"><small>Xavier Bouclet</small></p></section><section id="about_me"><h2>About Me</h2><div class="paragraph"><p>Xavier Bouclet - Tech Lead at National Bank of Canada and Jug leader</p></div>
+<div class="paragraph"><p><a href="https://mikrethor.github.io/blog/">Blog</a>, Twitter : @XavierBouclet, <a href="https://www.amazon.ca/-/fr/Xavier-Bouclet-ebook/dp/B083GJCHSG">La dure vie de Techlead</a></p></div></section>
+<section id="schedule"><h2>Schedule</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%" /><col style="width:50%" /></colgroup><thead><tr><th class="tableblock halign-left valign-top">Label</th><th class="tableblock halign-left valign-top">Time (minutes)</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">Quarkus presentation</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">hello-quarkus</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">20 + 10 Q&amp;A</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">mongo-quarkus</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">30 + 10 Q&amp;A</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">wrap-up</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">5 minutes</p></td></tr></table></section>
+<section id="available_on_github"><h2>Available on github</h2><div class="paragraph"><p>All the content of this workshop is available on the <a href="https://github.com/montrealjug/quarkus-workshop">MontrealJug GitHub</a>.</p></div></section>
+<section><section id="quarkus"><h2>Quarkus</h2><div class="paragraph"><p><span class="red"><strong>=</strong></span></p></div><div class="paragraph"><p><span class="red"><strong>Quark</strong></span> - a subatomic particle</p></div><div class="paragraph"><p><span class="red"><strong>+</strong></span></p></div><div class="paragraph"><p><span class="red"><strong>Us</strong></span> - the hardest problem in the software industry</p></div></section><section id="container_density_problem"><h2>Container density problem</h2><div class="imageblock" style=""><img src="images/container-density-without-quarkus.svg" alt="Density" /></div>
+<aside class="notes"></aside></section><section id="why_quarkus"><h2>Why Quarkus</h2><div class="imageblock" style=""><img src="images/container-density-with-quarkus.svg" alt="Density with Quarkus" /></div></section><section id="how_does_it_work"><h2>How does-it work ?</h2><div class="imageblock" style=""><img src="images/jvm-graalvm-targets-quarkus-green.svg" alt="Hotspot ou Graalvm" /></div></section><section id="native_compilation_a_href_https_openjdk_java_net_jeps_295_aot_a"><h2>Native compilation (<a href="https://openjdk.java.net/jeps/295">aot</a>)</h2><div class="imageblock" style=""><img src="images/native-executable-process.png" alt="Native compilation" /></div>
+<aside class="notes"><div class="paragraph"><p>The native compilation is done thanks to graalvm.</p></div></aside></section><section id="what_s_the_purpose_of_graalvm"><h2>What&#8217;s the purpose of GraalVM ?</h2><div class="imageblock" style=""><img src="images/graal-vm-arch-green.svg" alt="Graalvm" /></div>
+<aside class="notes"><div class="paragraph"><p>The compiler removes everything useless to the final Jar so that it&#8217;s as minimal as possible.</p></div></aside></section><section id="how_does_the_executable_works_without_a_jvm"><h2>How does the executable works without a JVM ?</h2><div class="ulist"><ul><li class="fragment"><p>SubstrateVM is included in the executable</p></li><li class="fragment"><p>No runtime optimization like a standard JVM</p></li><li class="fragment"><p>Minimal garbage collector</p></li><li class="fragment"><p>Create an initial heap during ahead-of-time compilation</p></li></ul></div></section><section id="does_size_matter"><h2>Does size matter ?</h2><div class="imageblock" style=""><img src="images/quarkus_metrics_graphic_bootmem_wide.png" alt="Quarkus metrics on REST and REST+CRUD" /></div>
+<aside class="notes"><div class="paragraph"><p>50 MB in our example vs 100 MB min with a jvm</p></div></aside></section><section id="advantages"><h2>Advantages :</h2><div class="ulist"><ul><li><p>scale up / down</p></li><li><p>extremely fast rollback</p></li><li><p>serverless, cold start almost free.</p></li></ul></div></section><section id="limitations"><h2>Limitations</h2><div class="ulist"><ul><li class="fragment"><p>Dynamic classloading &#8658; not supported</p></li><li class="fragment"><p>JVMTI, JMX and other VM interfaces (no agent) &#8658; not supported</p></li><li class="fragment"><p>Reflection &#8658; partially supported</p></li></ul></div>
+<div class="paragraph"><p><a href="https://github.com/oracle/graal/blob/master/substratevm/LIMITATIONS.md">SubstrateVM limitations</a></p></div></section></section>
+<section id="hello_quarkus"><h2>Hello Quarkus</h2><div class="paragraph"><p>Objective :</p></div>
+<div class="ulist"><ul><li class="fragment"><p>create a microservice</p></li><li class="fragment"><p>hot reload</p></li><li class="fragment"><p>native compilation</p></li></ul></div></section>
+<section id="mongo_quarkus"><h2>Mongo Quarkus</h2><div class="paragraph"><p>Objective :</p></div>
+<div class="ulist"><ul><li class="fragment"><p>adding extensions</p></li><li class="fragment"><p>interact with a database (mongo)</p></li><li class="fragment"><p>monitor your native app with jaeger</p></li></ul></div></section>
+<section><section id="going_further"><h2>Going further</h2><div class="ulist"><ul><li><p><a href="https://code.quarkus.io">Starter Site</a></p></li><li><p><a href="https://quarkus.io">Site Quarkus</a></p></li><li><p><a href="https://quarkus.io/quarkus-workshops/super-heroes/">6 hours workshop</a></p></li><li><p><a href="https://www.youtube.com/watch?v=UB-pRJgGhZc">Ch&#8217;tit Jug</a></p></li><li><p><a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=3&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwimvqeK0PHnAhVtUN8KHbShD0wQwqsBMAJ6BAgKEA4&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DS05WsHJZsYk&amp;usg=AOvVaw09VQOhf3p0yc95-RNWqT5C">DevoxxFr Workshop</a></p></li><li><p><a href="https://github.com/quarkusio/quarkus">Github Quarkus</a></p></li><li><p><a href="https://ppalaga.github.io/presentations/190321-quarkus-vd-bucharest/index.html#/">Quarkus Voxxed Days Bucharest</a></p></li><li><p><a href="https://github.com/oracle/graal/blob/master/substratevm/LIMITATIONS.md">Graalvm limitations</a></p></li></ul></div></section><section id="this_is_the_end"><h2>This is the end !</h2><div class="imageblock thumb" style=""><img src="images/Quarkus.png" alt="Quarkus" /></div></section></section></div></div><script src="reveal.js-3.9.2/lib/js/head.min.js"></script><script src="reveal.js-3.9.2/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+Reveal.initialize({
+  // Display controls in the bottom right corner
+  controls: true,
+  // Display a presentation progress bar
+  progress: true,
+  // Set a per-slide timing for speaker notes, null means none
+  defaultTiming: null,
+  // Display the page number of the current slide
+  slideNumber: false,
+  // Push each slide change to the browser history
+  history: false,
+  // Enable keyboard shortcuts for navigation
+  keyboard: true,
+  // Enable the slide overview mode
+  overview: true,
+  // Vertical centering of slides
+  center: true,
+  // Enables touch navigation on devices with touch input
+  touch: true,
+  // Loop the presentation
+  loop: false,
+  // Change the presentation direction to be RTL
+  rtl: false,
+  // Randomizes the order of slides each time the presentation loads
+  shuffle: false,
+  // Turns fragments on and off globally
+  fragments: true,
+  // Flags if the presentation is running in an embedded mode,
+  // i.e. contained within a limited portion of the screen
+  embedded: false,
+  // Flags if we should show a help overlay when the questionmark
+  // key is pressed
+  help: true,
+  // Flags if speaker notes should be visible to all viewers
+  showNotes: false,
+  // Global override for autolaying embedded media (video/audio/iframe)
+  // - null: Media will only autoplay if data-autoplay is present
+  // - true: All media will autoplay, regardless of individual setting
+  // - false: No media will autoplay, regardless of individual setting
+  autoPlayMedia: null,
+  // Number of milliseconds between automatically proceeding to the
+  // next slide, disabled when set to 0, this value can be overwritten
+  // by using a data-autoslide attribute on your slides
+  autoSlide: 0,
+  // Stop auto-sliding after user input
+  autoSlideStoppable: true,
+  // Enable slide navigation via mouse wheel
+  mouseWheel: false,
+  // Hides the address bar on mobile devices
+  hideAddressBar: true,
+  // Opens links in an iframe preview overlay
+  previewLinks: false,
+  // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
+  // NOTE setting the theme in the config no longer works in reveal.js 3.x
+  //theme: Reveal.getQueryHash().theme || 'solarized',
+  // Transition style (e.g., none, fade, slide, convex, concave, zoom)
+  transition: Reveal.getQueryHash().transition || 'linear',
+  // Transition speed (e.g., default, fast, slow)
+  transitionSpeed: 'default',
+  // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
+  backgroundTransition: 'fade',
+  // Number of slides away from the current that are visible
+  viewDistance: 3,
+  // Parallax background image (e.g., "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'")
+  parallaxBackgroundImage: '',
+  // Parallax background size in CSS syntax (e.g., "2100px 900px")
+  parallaxBackgroundSize: '',
+
+  // The "normal" size of the presentation, aspect ratio will be preserved
+  // when the presentation is scaled to fit different resolutions. Can be
+  // specified using percentage units.
+  width: 960,
+  height: 700,
+
+  // Factor of the display size that should remain empty around the content
+  margin: 0.1,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 1.5,
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+      { src: 'reveal.js-3.9.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js-3.9.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js-3.9.2/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'reveal.js-3.9.2/plugin/zoom-js/zoom.js', async: true },
+      { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true }
+  ]
+});</script></body></html>

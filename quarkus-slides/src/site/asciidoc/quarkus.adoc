@@ -1,5 +1,5 @@
 = Montreal Jug : Quarkus Workshop
-Maxime David, Xavier Bouclet
+Xavier Bouclet
 v0.1, 2020-06-18: first version
 :example-caption!:
 ifndef::imagesdir[:imagesdir: images]

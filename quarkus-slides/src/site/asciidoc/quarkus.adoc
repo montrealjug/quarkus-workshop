@@ -15,6 +15,34 @@ Xavier Bouclet - Tech Lead at National Bank of Canada and Jug leader
 
 https://mikrethor.github.io/blog/[Blog], Twitter : @XavierBouclet, https://www.amazon.ca/-/fr/Xavier-Bouclet-ebook/dp/B083GJCHSG[La dure vie de Techlead]
 
+== Schedule
+
+|===
+|Label |Time (minutes)
+
+|Quarkus presentation
+|20
+
+|hello-quarkus
+|20 + 10 Q&A
+
+|mongo-quarkus
+|30 + 10 Q&A
+
+|Reactive with Quarkus
+|10
+
+|reactive-quarkus
+|15 + 10 Q&A
+
+|wrap-up
+|5 minutes
+|===
+
+== Available on github
+
+All the content of this workshop is available on the https://github.com/montrealjug/quarkus-workshop[MontrealJug GitHub].
+
 == Quarkus
 
 [red]#*=*#
@@ -90,6 +118,8 @@ image::quarkus_metrics_graphic_bootmem_wide.png[Quarkus metrics on REST and REST
 - JVMTI, JMX and other VM interfaces (no agent) => not supported
 - Reflection => partially supported
 
+https://github.com/oracle/graal/blob/master/substratevm/LIMITATIONS.md[SubstrateVM limitations]
+
 == Hello Quarkus
 
 Objective :
@@ -98,7 +128,6 @@ Objective :
 - create a microservice
 - hot reload
 - native compilation
-
 
 == Mongo Quarkus
 

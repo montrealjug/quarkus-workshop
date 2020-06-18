@@ -511,10 +511,10 @@ docker build -f src/main/docker/Dockerfile.native -t quarkus/mongo-quarkus:1.0 .
 
 docker-compose up
 
-curl -X PUT -H "Content-Type: application/json" -d '{"title":"Jam","completed":"false"}' http://localhost:8080/todos | json_pp
-curl -X PUT -H "Content-Type: application/json" -d '{"title":"Ham","completed":"false"}' http://localhost:8080/todos | json_pp
+curl -X PUT -H "Content-Type: application/json" -d '{"title":"Jam","completed":"false"}' http://localhost:8080/todos | jq
+curl -X PUT -H "Content-Type: application/json" -d '{"title":"Ham","completed":"false"}' http://localhost:8080/todos | jq
 
-curl -X GET http://localhost:8080/todos | json_pp
+curl -X GET http://localhost:8080/todos | jq
 
 You can do more request to have some data in jaeger.
 

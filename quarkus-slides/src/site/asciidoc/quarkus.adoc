@@ -5,11 +5,7 @@ v0.1, 2020-06-18: first version
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../../main/java]
 
-== About Us
-
-Maxime David - Studio Lead architect at National Bank of Canada
-
-https://github.com/maxday[Github], Twitter : @Xouuox
+== About Me
 
 Xavier Bouclet - Tech Lead at National Bank of Canada and Jug leader
 
@@ -28,12 +24,6 @@ https://mikrethor.github.io/blog/[Blog], Twitter : @XavierBouclet, https://www.a
 
 |mongo-quarkus
 |30 + 10 Q&A
-
-|Reactive with Quarkus
-|10
-
-|reactive-quarkus
-|15 + 10 Q&A
 
 |wrap-up
 |5 minutes
@@ -137,10 +127,6 @@ Objective :
 - adding extensions
 - interact with a database (mongo)
 - monitor your native app with jaeger
-
-== Reactive
-
-Todo max
 
 == Going further
 
